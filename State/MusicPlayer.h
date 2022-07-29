@@ -15,7 +15,7 @@ class MusicPlayer
 		MusicPlayer()
 		{
 			// TODO: Set initial state to Inactive
-			setCurrentState(new Inactive());
+			
 		}
 
 		virtual ~MusicPlayer()
@@ -42,7 +42,7 @@ class MusicPlayer
 		virtual void handle(Event event)
 		{
 			// TODO: Handle State specific behavior here.
-			currentState->handle(nullptr, event);
+			
 		}
 };
 
