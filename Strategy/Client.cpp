@@ -12,8 +12,6 @@
 std::vector<int> createIntegerArray();
 std::vector<int> scrambleArray(std::vector<int>);
 void printIntegerArray(std::vector<int>&);
-
-// TODO: fill with logic to simulate a change of policy
 void simulateRuntimeConfigurationChange(Policy*);
 
 int main()
