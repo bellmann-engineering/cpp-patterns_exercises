@@ -76,7 +76,24 @@ void printIntegerArray(std::vector<int>& a)
 
 void simulateRuntimeConfigurationChange(Policy* sortPolicy)
 {
-	
+	int output = 1 + (rand() % static_cast<int>(100 - 1));
+
+	bool timeIsImportant = false;
+	bool spaceIsImportant = false;
+	if ((output % 2) == 0)
+	{
+		std::cout << "Time is important!" << std::endl;
+		timeIsImportant = true;
+		spaceIsImportant = false;
+		sortPolicy->configure(timeIsImportant, spaceIsImportant);
+	}
+	else
+	{
+		timeIsImportant = true;
+		spaceIsImportant = true;
+		std::cout << "Time and space are important!" << std::endl;
+		sortPolicy->configure(timeIsImportant, spaceIsImportant);
+	}
 
 }
 
