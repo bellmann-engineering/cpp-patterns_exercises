@@ -12,14 +12,7 @@ class QuickSort : public SortStrategy
 
 
 	public:
-		void performSort(std::vector<int>& a) override
-		{
-			int n = a.size();
-			if (n != 0)
-			{
-				quicksort(a, 0, n-1);
-			}
-		}
+		
 
 	private:
 		int partition(std::vector<int>& v, int start, int end)

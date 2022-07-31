@@ -12,12 +12,9 @@ class MergeSort : public SortStrategy
 	 * Sort the array a using mergesort
 	 ***********************************************************************/
 public:
-	void performSort(std::vector<int>& a) override
-	{
-		int n = a.size();
-		std::vector<int> aux(n);
-		sort(a, aux, 0, n);
-	}
+	
+
+	
 	/***********************************************************************
 	 * Merge the subarrays a[lo] .. a[mid-1] and a[mid] .. a[hi-1] into a[lo] ..
 	 * a[hi-1] using the auxilliary array aux[] as scratch space.
