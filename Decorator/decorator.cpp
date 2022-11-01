@@ -30,17 +30,7 @@ class WindowDecorator : public Window
         Window* m_decoratedWindow; 
     
     public:
-        WindowDecorator(Window* decoratedWindow)
-			: m_decoratedWindow(decoratedWindow) 
-        {
-            
-        }
-
-        virtual ~WindowDecorator() 
-        {
-            if (m_decoratedWindow != nullptr)
-                delete m_decoratedWindow;
-        }
+        // TODO: create constructor and destructor
 };
 
 class VerticalScrollBarDecorator : public WindowDecorator 
@@ -67,34 +57,13 @@ class VerticalScrollBarDecorator : public WindowDecorator
         void drawVerticalScrollBar() 
         {
             // if this was a gui app draw vertical scrollbar
+			// cout...
         }
 };
 
 class HorizontalScrollBarDecorator : public WindowDecorator 
 {
-    public:
-        HorizontalScrollBarDecorator(Window* decoratedWindow) 
-            : WindowDecorator(decoratedWindow) 
-        {
-
-        }
-    
-        void draw() 
-		{
-            drawHorizontalScrollBar();
-            m_decoratedWindow->draw();
-        }
-    
-        string getDescription() 
-        {
-            return m_decoratedWindow->getDescription() + " with horizontal scrollbar";
-        }
-
-    private:
-        void drawHorizontalScrollBar() 
-        {
-            // if this was a gui app draw horizontal scrollbar
-        }
+    // TODO: implement the HorizontalScrollBarDecorator
 };
 
 int main()
