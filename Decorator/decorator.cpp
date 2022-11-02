@@ -30,7 +30,8 @@ class WindowDecorator : public Window
         Window* m_decoratedWindow; 
     
     public:
-        // TODO: create constructor and destructor to set m_decoratedWindow
+        // TODO: create constructor to set m_decoratedWindow
+	// TODO: do not forget about a destructor
 };
 
 class VerticalScrollBarDecorator : public WindowDecorator 
