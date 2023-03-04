@@ -3,7 +3,7 @@
 
 #include <string>
 
-namespace abstractfactorytopings::pepperoni
+namespace abstractfactorytoppings::pepperoni
 {
 
 	class Pepperoni

@@ -1,9 +1,9 @@
 #ifndef PIZZA
 #define PIZZA
 
-#include "../topings/pepperoni/Pepperoni.h"
-#include "../topings/sauce/Sauce.h"
-#include "../topings/veggies/Veggies.h"
+#include "../toppings/pepperoni/Pepperoni.h"
+#include "../toppings/sauce/Sauce.h"
+#include "../toppings/veggies/Veggies.h"
 #include "../toppings/cheese/Cheese.h"
 #include "../toppings/clams/Clams.h"
 #include "../toppings/dough/Dough.h"
@@ -16,9 +16,9 @@
 namespace abstractfactorypizza
 {
 
-	using Pepperoni = abstractfactorytopings::pepperoni::Pepperoni;
-	using Sauce = abstractfactorytopings::sauce::Sauce;
-	using Veggies = abstractfactorytopings::veggies::Veggies;
+	using Pepperoni = abstractfactorytoppings::pepperoni::Pepperoni;
+	using Sauce = abstractfactorytoppings::sauce::Sauce;
+	using Veggies = abstractfactorytoppings::veggies::Veggies;
 	using Cheese = abstractfactorytoppings::cheese::Cheese;
 	using Clams = abstractfactorytoppings::clams::Clams;
 	using Dough = abstractfactorytoppings::dough::Dough;

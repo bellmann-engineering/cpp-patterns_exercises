@@ -1,14 +1,14 @@
 #ifndef CHICAGOPIZZATOPPINGFACTORY
 #define CHICAGOPIZZATOPPINGFACTORY
 
-#include "../topings/pepperoni/Pepperoni.h"
-#include "../topings/pepperoni/SlicedPepperoni.h"
-#include "../topings/sauce/PlumTomatoSauce.h"
-#include "../topings/sauce/Sauce.h"
-#include "../topings/veggies/BlackOlives.h"
-#include "../topings/veggies/Eggplant.h"
-#include "../topings/veggies/Spinach.h"
-#include "../topings/veggies/Veggies.h"
+#include "../toppings/pepperoni/Pepperoni.h"
+#include "../toppings/pepperoni/SlicedPepperoni.h"
+#include "../toppings/sauce/PlumTomatoSauce.h"
+#include "../toppings/sauce/Sauce.h"
+#include "../toppings/veggies/BlackOlives.h"
+#include "../toppings/veggies/Eggplant.h"
+#include "../toppings/veggies/Spinach.h"
+#include "../toppings/veggies/Veggies.h"
 #include "../toppings/cheese/Cheese.h"
 #include "../toppings/cheese/MozzarellaCheese.h"
 #include "../toppings/clams/Clams.h"
@@ -23,14 +23,14 @@
 namespace abstractfactorytoppingfactory
 {
 
-	using Pepperoni = abstractfactorytopings::pepperoni::Pepperoni;
-	using SlicedPepperoni = abstractfactorytopings::pepperoni::SlicedPepperoni;
-	using PlumTomatoSauce = abstractfactorytopings::sauce::PlumTomatoSauce;
-	using Sauce = abstractfactorytopings::sauce::Sauce;
-	using BlackOlives = abstractfactorytopings::veggies::BlackOlives;
-	using Eggplant = abstractfactorytopings::veggies::Eggplant;
-	using Spinach = abstractfactorytopings::veggies::Spinach;
-	using Veggies = abstractfactorytopings::veggies::Veggies;
+	using Pepperoni = abstractfactorytoppings::pepperoni::Pepperoni;
+	using SlicedPepperoni = abstractfactorytoppings::pepperoni::SlicedPepperoni;
+	using PlumTomatoSauce = abstractfactorytoppings::sauce::PlumTomatoSauce;
+	using Sauce = abstractfactorytoppings::sauce::Sauce;
+	using BlackOlives = abstractfactorytoppings::veggies::BlackOlives;
+	using Eggplant = abstractfactorytoppings::veggies::Eggplant;
+	using Spinach = abstractfactorytoppings::veggies::Spinach;
+	using Veggies = abstractfactorytoppings::veggies::Veggies;
 	using Cheese = abstractfactorytoppings::cheese::Cheese;
 	using MozzarellaCheese = abstractfactorytoppings::cheese::MozzarellaCheese;
 	using Clams = abstractfactorytoppings::clams::Clams;

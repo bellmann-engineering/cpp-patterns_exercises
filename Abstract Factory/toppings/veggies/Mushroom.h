@@ -4,7 +4,7 @@
 #include "Veggies.h"
 #include <string>
 
-namespace abstractfactorytopings::veggies
+namespace abstractfactorytoppings::veggies
 {
 
 	class Mushroom : public Veggies

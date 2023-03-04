@@ -1,15 +1,15 @@
 #ifndef NYPIZZATOPPINGFACTORY
 #define NYPIZZATOPPINGFACTORY
 
-#include "../topings/pepperoni/Pepperoni.h"
-#include "../topings/pepperoni/SlicedPepperoni.h"
-#include "../topings/sauce/MarinaraSauce.h"
-#include "../topings/sauce/Sauce.h"
-#include "../topings/veggies/Garlic.h"
-#include "../topings/veggies/Mushroom.h"
-#include "../topings/veggies/Onion.h"
-#include "../topings/veggies/RedPepper.h"
-#include "../topings/veggies/Veggies.h"
+#include "../toppings/pepperoni/Pepperoni.h"
+#include "../toppings/pepperoni/SlicedPepperoni.h"
+#include "../toppings/sauce/MarinaraSauce.h"
+#include "../toppings/sauce/Sauce.h"
+#include "../toppings/veggies/Garlic.h"
+#include "../toppings/veggies/Mushroom.h"
+#include "../toppings/veggies/Onion.h"
+#include "../toppings/veggies/RedPepper.h"
+#include "../toppings/veggies/Veggies.h"
 #include "../toppings/cheese/Cheese.h"
 #include "../toppings/cheese/ReggianoCheese.h"
 #include "../toppings/clams/Clams.h"
@@ -23,15 +23,15 @@
 namespace abstractfactorytoppingfactory
 {
 
-	using Pepperoni = abstractfactorytopings::pepperoni::Pepperoni;
-	using SlicedPepperoni = abstractfactorytopings::pepperoni::SlicedPepperoni;
-	using MarinaraSauce = abstractfactorytopings::sauce::MarinaraSauce;
-	using Sauce = abstractfactorytopings::sauce::Sauce;
-	using Garlic = abstractfactorytopings::veggies::Garlic;
-	using Mushroom = abstractfactorytopings::veggies::Mushroom;
-	using Onion = abstractfactorytopings::veggies::Onion;
-	using RedPepper = abstractfactorytopings::veggies::RedPepper;
-	using Veggies = abstractfactorytopings::veggies::Veggies;
+	using Pepperoni = abstractfactorytoppings::pepperoni::Pepperoni;
+	using SlicedPepperoni = abstractfactorytoppings::pepperoni::SlicedPepperoni;
+	using MarinaraSauce = abstractfactorytoppings::sauce::MarinaraSauce;
+	using Sauce = abstractfactorytoppings::sauce::Sauce;
+	using Garlic = abstractfactorytoppings::veggies::Garlic;
+	using Mushroom = abstractfactorytoppings::veggies::Mushroom;
+	using Onion = abstractfactorytoppings::veggies::Onion;
+	using RedPepper = abstractfactorytoppings::veggies::RedPepper;
+	using Veggies = abstractfactorytoppings::veggies::Veggies;
 	using Cheese = abstractfactorytoppings::cheese::Cheese;
 	using ReggianoCheese = abstractfactorytoppings::cheese::ReggianoCheese;
 	using Clams = abstractfactorytoppings::clams::Clams;

@@ -4,7 +4,7 @@
 #include "Pepperoni.h"
 #include <string>
 
-namespace abstractfactorytopings::pepperoni
+namespace abstractfactorytoppings::pepperoni
 {
 
 

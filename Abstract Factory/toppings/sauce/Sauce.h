@@ -3,7 +3,7 @@
 
 #include <string>
 
-namespace abstractfactorytopings::sauce
+namespace abstractfactorytoppings::sauce
 {
 
 	class Sauce
