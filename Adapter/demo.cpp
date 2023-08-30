@@ -7,7 +7,7 @@ class ThermoInterface
         virtual double getTempC() = 0;
 };
 
-// Lecacy component
+
 class CelciusThermo : public ThermoInterface
 {
     public:
@@ -18,6 +18,7 @@ class CelciusThermo : public ThermoInterface
     
 };
 
+// Lecacy component
 class FahrenheitThermo
 {
     public:
