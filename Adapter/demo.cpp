@@ -18,7 +18,7 @@ class CelciusThermo : public ThermoInterface
     
 };
 
-// Lecacy component
+// Legacy component
 class FahrenheitThermo
 {
     public:
