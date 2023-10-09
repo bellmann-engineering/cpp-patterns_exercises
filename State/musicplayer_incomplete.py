@@ -1,18 +1,21 @@
 """
 State pattern example: Music player and remote control.
+Solution
 """
 from abc import ABC, abstractmethod
 import enum
-
 import click
 from termcolor import colored
+import colorama
+
+colorama.init()  # used to make ANSI color available
 
 
 class Event(enum.StrEnum):
     """Event enumeration."""
 
-    OnOffPressed = "on / off"
-    PlayPausePressed = "play / pause"
+    OnOffPressed = "on/off"
+    PlayPausePressed = "play/pause"
 
 
 class State(ABC):
@@ -21,18 +24,41 @@ class State(ABC):
     @abstractmethod
     def entry(self):
         """Executed when entering the state."""
-        raise NotImplementedError("entry() must be implemented in a concrete state")
+        pass
 
     @abstractmethod
     def exit(self):
         """Executed when exiting the state."""
-        raise NotImplementedError("exit() must be implemented in a concrete state")
+        pass
 
     @abstractmethod
     def handle(self, event: Event):
         """Executed when the state is active."""
-        raise NotImplementedError("handle() must be implemented in a concrete state")
+        pass
 
+
+class Inactive(State):
+    """Concrete state class for the 'inactive' state."""
+
+    def __init__(self, player):
+        self.player = player
+
+    def entry(self):
+        print(" - Entering 'inactive' state")
+        self.player.turn_led_off()
+
+    def exit(self):
+        print(" - Exiting 'inactive' state")
+
+    def handle(self, event: Event):
+        match event:
+            case Event.OnOffPressed:
+                print(" - OnOffPressed event in 'inactive' state")
+                self.player.set_state(On(self.player))
+            case _:
+                pass
+
+# TODO: Implement classes for all missing states by inheritance from class State
 
 class Context(ABC):
     """Abstract base class for the Context class of the State pattern."""
@@ -55,6 +81,7 @@ class MusicPlayer(Context):
     """Music player class."""
 
     def __init__(self):
+        super().__init__(Inactive(self))
         self._led_on = False
 
     def turn_led_on(self):
@@ -77,14 +104,10 @@ class MusicPlayer(Context):
 
     # Create a function to display the options and prompt for input
     def display_menu(self):
-        click.echo("Press a button:\n")
-        for i, option in enumerate(Event):
-            click.echo(f"{i + 1}. {option}")
-        click.echo()
         return click.prompt(
-            "Press a button",
+            "\nPress a button (1. on/off; 2. play/pause)",
             type=int,
-            default=1,
+            default=0,
             show_default=False,
             prompt_suffix=": ",
         )
@@ -108,7 +131,6 @@ if __name__ == "__main__":
                 event = Event[selected_option]
                 music_player.handle(event)
                 print(f"Player is in '{music_player.state.__class__.__name__}' state")
-                print()
 
     # run the prompt loop
     menu_prompt()
