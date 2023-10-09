@@ -5,9 +5,10 @@ class ThermoInterface
 {
     public:
         virtual double getTempC() = 0;
+        virtual ~ThermoInterface() {}; // important to avoid memory leak by ThermoAdapter
 };
 
-// Lecacy component
+
 class CelciusThermo : public ThermoInterface
 {
     public:
@@ -18,22 +19,27 @@ class CelciusThermo : public ThermoInterface
     
 };
 
+// Legacy component
 class FahrenheitThermo
 {
     public:
         double getFahrenheitTemperature() 
         {
+            std::cout << "FahrenheitThermo called." << "\n";
             return -4; // -4 °F should be -20° C
         }
-    
 };
+
+// TODO: Implement ThermoAdapter
 
 int main()
 {
-    // TODO: Implement ThermoAdapter
     ThermoInterface* ti = new ThermoAdapter();
     std::cout << ti->getTempC() << std::endl;
 
     if(ti != nullptr)
-       delete ti;
+    {
+        delete ti;
+        ti = nullptr;
+    }
 }
