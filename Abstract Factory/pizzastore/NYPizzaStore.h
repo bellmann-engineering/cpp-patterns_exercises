@@ -6,6 +6,8 @@
 #include "../pizza/PepperoniPizza.h"
 #include "../pizza/Pizza.h"
 #include "../pizza/VeggiePizza.h"
+//TODO include head for MeatPizza
+
 #include "../toppingfactory/NYPizzaToppingFactory.h"
 #include "../toppingfactory/PizzaToppingFactory.h"
 #include "PizzaStore.h"
@@ -19,10 +21,13 @@ namespace abstractfactorypizzastore
 	using PepperoniPizza = abstractfactorypizza::PepperoniPizza;
 	using Pizza = abstractfactorypizza::Pizza;
 	using VeggiePizza = abstractfactorypizza::VeggiePizza;
+	//TODO: include MeatPizza
+	
 	using NYPizzaToppingFactory = abstractfactorytoppingfactory::NYPizzaToppingFactory;
 	using PizzaToppingFactory = abstractfactorytoppingfactory::PizzaToppingFactory;
 
-	//TODO: Create meat pizza and name it using name of the Store
+	//TODO: Include a pizza with the name "New York Style Meat Pizza" to the method createPizza
+	// 		The corresponding item should be "meat".
 	class NYPizzaStore : public PizzaStore
 	{
 	private:

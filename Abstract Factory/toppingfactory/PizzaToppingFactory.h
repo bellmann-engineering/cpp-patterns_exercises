@@ -7,6 +7,7 @@
 #include "../toppings/cheese/Cheese.h"
 #include "../toppings/clams/Clams.h"
 #include "../toppings/dough/Dough.h"
+
 #include <vector>
 
 namespace abstractfactorytoppingfactory
@@ -18,8 +19,10 @@ namespace abstractfactorytoppingfactory
 	using Cheese = abstractfactorytoppings::cheese::Cheese;
 	using Clams = abstractfactorytoppings::clams::Clams;
 	using Dough = abstractfactorytoppings::dough::Dough;
+	
 
-	//TODO: Add the required method to the following interface
+	//TODO: Add the required method to the following interface.
+	//      Don't forget to include the necessary header file.
 	class PizzaToppingFactory
 	{
 

@@ -15,8 +15,9 @@
 #include "../toppings/clams/FrozenClams.h"
 #include "../toppings/dough/Dough.h"
 #include "../toppings/dough/ThickCrustDough.h"
+// TODO: include necessary meat headers
 
-// TODO: include meat(y) headers
+
 #include "PizzaToppingFactory.h"
 #include <vector>
 
@@ -37,7 +38,8 @@ namespace abstractfactorytoppingfactory
 	using FrozenClams = abstractfactorytoppings::clams::FrozenClams;
 	using Dough = abstractfactorytoppings::dough::Dough;
 	using ThickCrustDough = abstractfactorytoppings::dough::ThickCrustDough;
-
+	// TODO: include necessary Meat
+	
 	class ChicagoPizzaToppingFactory : public PizzaToppingFactory
 	{
 
@@ -78,7 +80,7 @@ namespace abstractfactorytoppingfactory
 			return new FrozenClams();
 		}
 
-		// TODO: create method
+		// TODO: create method createMeat
 	};
 
 }
