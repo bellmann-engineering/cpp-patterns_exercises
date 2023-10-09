@@ -73,9 +73,9 @@ class Car
 		
 		void display()
         {
-            std::cout << "Body:" << body->getShape() << std::endl;
-            std::cout << "Engine (PS):" << engine->getPs() << std::endl;
-            std::cout << "Tire size:" << wheels[0]->getSize() << "'" << std::endl;
+            std::cout << " Body:" << body->getShape() << std::endl;
+            std::cout << " Engine (PS):" << engine->getPs() << std::endl;
+            std::cout << " Tire size:" << wheels[0]->getSize() << "'" << std::endl;
         }
 };
 
@@ -91,10 +91,11 @@ class Builder
 //Director is responsible for the whole process 
 class Director
 {
-    Builder* builder = nullptr;
+    private:
+        Builder* builder = nullptr;
 
     public:
-        //TODO: set the Builder
+        //TODO: implement the method setBuilder, see also its usage in main
 
         Car* buildCar()
         {
@@ -131,18 +132,21 @@ class SUVBuilder : public Builder
 	
         Wheel* buildWheel()
         {
+            // 22" wheels
             wheel = new Wheel(22);
             return wheel;
         }
 
         Engine* buildEngine()
         {
+            // horsepower 400
             engine = new Engine(400);
             return engine;
         }
 
         Body* buildBody()
-        {
+        {   
+            // Body SUV
             body = new Body("SUV");
 			return body;
         }
@@ -152,7 +156,7 @@ class SUVBuilder : public Builder
 //Concrete builder for city cars 
 class CityCarBuilder : public Builder
 {
-	// TODO: Build a City car with Body("Hatchback") and 85 PS engine having 16" Wheels 
+	// TODO: Build a CityCar with Body("Hatchback") and 85 PS engine having 16" Wheels 
 	
 	
 };
