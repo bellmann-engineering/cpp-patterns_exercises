@@ -4,7 +4,7 @@
 class SortStrategy
 {
 	public:
-		// TODO: add the missing interface method
+		// TODO: Add the missing interface method.
 		
 };
 

@@ -16,9 +16,10 @@ void simulateRuntimeConfigurationChange(Policy*);
 
 int main()
 {
-	// TODO: implement the Context class with required methods and attributes
-	// TODO: instantiate the policy and the context
+	// TODO: Instantiate the policy and the context.
 	
+
+
 
 	std::vector<int> array = createIntegerArray();
 

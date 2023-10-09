@@ -7,12 +7,9 @@
 
 class QuickSort : public SortStrategy
 {
-
-	// TODO 2: implement the missing interface
-
-
 	public:
-		
+	// TODO: Implement the missing interface
+	// You need to use the implemented method quicksort().
 
 	private:
 		int partition(std::vector<int>& v, int start, int end)
