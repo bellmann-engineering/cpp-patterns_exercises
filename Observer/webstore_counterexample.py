@@ -36,10 +36,10 @@ class Customer:
             self.send_sms(message)
 
     def send_email(self, message):
-        print(f"Email sent to {self.name} ({self.email}): {message}")
+        print(f" - Email sent to {self.name} ({self.email}): {message}")
 
     def send_sms(self, message):
-        print(f"SMS sent to {self.name} ({self.phone}): {message}")
+        print(f" - SMS sent to {self.name} ({self.phone}): {message}")
 
 
 def check_items_stock(items, customers):
@@ -47,13 +47,15 @@ def check_items_stock(items, customers):
         print("Checking stock...")
         for item in items:
             in_stock = item.check_stock()
-            print(f"{item.name} is now {'in stock' if in_stock else 'out of stock'}.")
+            print(
+                f" - {item.name} is now {'in stock' if in_stock else 'out of stock'}."
+            )
+            print("Notifing interested costumers...")
             if in_stock and not item.in_stock:
                 for customer in customers:
                     if customer.is_interested(item):
                         customer.send_notification(item)
             item.in_stock = in_stock
-
         time.sleep(5)
         print()
 
@@ -61,7 +63,6 @@ def check_items_stock(items, customers):
 if __name__ == "__main__":
     phoenix_feather_wand = Item("Phoenix Feather Wand", 50.0)
     dragon_slayer_sword = Item("Dragon Slayer Sword", 100.0)
-
     all_items = [phoenix_feather_wand, dragon_slayer_sword]
 
     alice = Customer(
