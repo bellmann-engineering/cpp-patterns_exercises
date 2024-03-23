@@ -72,14 +72,8 @@ int main()
 	Window* simple = new SimpleWindow();
 	std::cout << simple->getDescription() << std::endl;
 
-	Window* horiz = new HorizontalScrollBarDecorator(new SimpleWindow());
-	std::cout << horiz->getDescription() << std::endl;
-
-	Window* vert = new VerticalScrollBarDecorator(new SimpleWindow());
-	std::cout << vert->getDescription() << std::endl;
-
-	Window* decoratedWindow = new HorizontalScrollBarDecorator(
-					new VerticalScrollBarDecorator(new SimpleWindow()));
+	// TODO: Decorate thge simple Window with horizontal and vertical scrollbar
+	
 	std::cout << decoratedWindow->getDescription() << std::endl;
 
 	delete simple;
