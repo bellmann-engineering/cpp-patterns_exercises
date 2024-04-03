@@ -1,195 +1,196 @@
 #include <iostream>
 #include <string>
 
-//Car parts
-class Wheel
+// Car parts
+class Wheel 
 {
-    private:
-        int size;
-	public:
-		Wheel(int s)
-		{
-			size = s;
-		}
-		
-		int getSize() 
-		{
-			return size;
-		}
+   private:
+    int size;
+
+   public:
+    Wheel(int s) 
+    { 
+	size = s; 
+    }
+
+    int getSize() 
+    {
+	    return size; 
+    }
 };
 
-class Engine
+class Engine 
 {
-    private:
-        int ps;
-	public:
-		Engine(int p)
-		{
-			ps = p;
-		}
-		
-		int getPs() 
-		{
-			return ps;
-		}
+   private:
+    int ps;
+
+   public:
+    Engine(int p)
+    { 
+	    ps = p; 
+    }
+
+    int getPs() 
+    { 
+	    return ps; 
+    }
 };
 
-class Body
+class Body 
 {
-    private:
-        std::string shape;
-	public:
-		Body(std::string s)
-		{
-			shape = s;
-		}
-		
-		std::string getShape() 
-		{
-			return shape;
-		}
+   private:
+    std::string shape;
+
+   public:
+    Body(std::string s) 
+    { 
+	    shape = s; 
+    }
+
+    std::string getShape() 
+    { 
+	    return shape; 
+    }
 };
 
-//Final product -- a car 
-class Car
+// Final product -- a car
+class Car 
 {
-    private:
-        Wheel*   wheels[4];
-        Engine*  engine;
-        Body* body;
-	public: 
-		void setWheel(Wheel* ws, int index)
-		{
-			wheels[index] = ws;
-		}
-		void setEngine(Engine* e)
-		{
-			engine = e;
-		}
-		void setBody(Body* b)
-		{
-			body = b;
-		}
-		
-		void display()
-        {
-            std::cout << "Body:" << body->getShape() << std::endl;
-            std::cout << "Engine (PS):" << engine->getPs() << std::endl;
-            std::cout << "Tire size:" << wheels[0]->getSize() << "'" << std::endl;
-        }
+   private:
+    Wheel* wheels[4];
+    Engine* engine;
+    Body* body;
+
+   public:
+    void setWheel(Wheel* ws, int index) 
+    { 
+	    wheels[index] = ws; 
+    }
+    void setEngine(Engine* e) 
+    { 
+	    engine = e; 
+    }
+    void setBody(Body* b) 
+    { 
+	    body = b; 
+    }
+
+    void display() 
+    {
+        std::cout << "Body:" << body->getShape() << std::endl;
+        std::cout << "Engine (PS):" << engine->getPs() << std::endl;
+        std::cout << "Tire size:" << wheels[0]->getSize() << "'" << std::endl;
+    }
 };
 
-//Builder is responsible for constructing the smaller parts 
-class Builder
+// Builder is responsible for constructing the smaller parts
+class Builder 
 {
-    public:
-        virtual Wheel* buildWheel() = 0;
-        virtual Engine* buildEngine() = 0;
-        virtual Body* buildBody() = 0;
+   public:
+    virtual Wheel* buildWheel() = 0;
+    virtual Engine* buildEngine() = 0;
+    virtual Body* buildBody() = 0;
 };
 
-//Director is responsible for the whole process 
-class Director
+// Director is responsible for the whole process
+class Director 
 {
     Builder* builder = nullptr;
 
-    public:
-        //TODO: set the Builder
+   public:
+    // TODO: set the Builder
 
-        Car* buildCar()
-        {
-            Car* car = new Car();
+    Car* buildCar() 
+    {
+        Car* car = new Car();
 
-            car->setBody(builder->buildBody());
+        car->setBody(builder->buildBody());
 
-            car->setEngine(builder->buildEngine());
+        car->setEngine(builder->buildEngine());
 
-            car->setWheel(builder->buildWheel(), 0);
-            car->setWheel(builder->buildWheel(), 1);
-			car->setWheel(builder->buildWheel(), 2);
-			car->setWheel(builder->buildWheel(), 3);
+        car->setWheel(builder->buildWheel(), 0);
+        car->setWheel(builder->buildWheel(), 1);
+        car->setWheel(builder->buildWheel(), 2);
+        car->setWheel(builder->buildWheel(), 3);
 
-            return car;
-        }
+        return car;
+    }
 };
 
-//Concrete Builder for SUV cars 
-class SUVBuilder : public Builder
+// Concrete Builder for SUV cars
+class SUVBuilder : public Builder 
 {
-	private: 
-		Wheel* wheel;
-		Engine* engine;
-		Body* body;
-		
-    public:
-		~SUVBuilder()
-		{
-			delete wheel;
-			delete engine;
-			delete body;
-		}
-	
-        Wheel* buildWheel()
-        {
-            wheel = new Wheel(22);
-            return wheel;
-        }
+   private:
+    Wheel* wheel;
+    Engine* engine;
+    Body* body;
 
-        Engine* buildEngine()
-        {
-            engine = new Engine(400);
-            return engine;
-        }
+   public:
+    ~SUVBuilder() 
+    {
+        delete wheel;
+        delete engine;
+        delete body;
+    }
 
-        Body* buildBody()
-        {
-            body = new Body("SUV");
-			return body;
-        }
-		
+    Wheel* buildWheel() 
+    {
+        wheel = new Wheel(22);
+        return wheel;
+    }
+
+    Engine* buildEngine() 
+    {
+        engine = new Engine(400);
+        return engine;
+    }
+
+    Body* buildBody() 
+    {
+        body = new Body("SUV");
+        return body;
+    }
 };
 
-//Concrete builder for city cars 
-class CityCarBuilder : public Builder
+// Concrete builder for city cars
+class CityCarBuilder : public Builder 
 {
-	// TODO: Build a City car with Body("Hatchback") and 85 PS engine having 16" Wheels 
-	
-	
+    // TODO: Build a City car with Body("Hatchback") and 85 PS engine having 16"
+    // Wheels
 };
 
-
-int main()
+int main() 
 {
-	// Final products
-    Car* car1 = nullptr; 
-	Car* car2 = nullptr; 
+    // Final products
+    Car* car1 = nullptr;
+    Car* car2 = nullptr;
 
-    //Director that controls the process 
+    // Director that controls the process
     Director director;
 
-    //Concrete builders 
+    // Concrete builders
     SUVBuilder suvBuilder;
     CityCarBuilder ccBuilder;
 
-    //Build an SUV 
+    // Build an SUV
     std::cout << "SUV" << std::endl;
-    director.setBuilder(&suvBuilder); // using SUVBuilder instance
+    director.setBuilder(&suvBuilder);  // using SUVBuilder instance
     car1 = director.buildCar();
     car1->display();
 
     std::cout << std::endl;
 
-    //Build a City Car 
+    // Build a City Car
     std::cout << "City Car" << std::endl;
-    director.setBuilder(&ccBuilder); // using CityCarBuilder instance
+    director.setBuilder(&ccBuilder);  // using CityCarBuilder instance
     car2 = director.buildCar();
     car2->display();
-	
-	if(car1 != nullptr)
-		delete car1;
 
-	if(car2 != nullptr)
-		delete car2;
+    if (car1 != nullptr) 
+	    delete car1;
+
+    if (car2 != nullptr) 
+	    delete car2;
 
     return 0;
 }
