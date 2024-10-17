@@ -87,9 +87,7 @@ class Car
 class Builder 
 {
    public:
-    virtual Wheel* buildWheel() = 0;
-    virtual Engine* buildEngine() = 0;
-    virtual Body* buildBody() = 0;
+    // TODO: define the methods
 };
 
 // Director is responsible for the whole process
