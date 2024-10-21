@@ -26,6 +26,11 @@ class Context
 			sortAlgorithm->performSort(array);
 		}
 
+		std::vector<int>& getArray()
+		{
+			return array;
+		}
+
 };
 
 #endif // _CONTEXT_H_
