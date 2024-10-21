@@ -31,7 +31,7 @@ int main()
 		printIntegerArray(array);
 		sortingContext->sort();
 		std::cout << "Sorted Array a = ";
-		printIntegerArray(array);
+		printIntegerArray(sortingContext->getArray());
 	}
 	
 	
