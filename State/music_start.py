@@ -33,6 +33,24 @@ class State(ABC):
         """Executed when the state is active."""
         raise NotImplementedError("handle() must be implemented in a concrete state")
 
+class PausedState(State):
+    """State representing the player in a paused state."""
+
+    def entry(self):
+        self.player.pause_music()
+
+    def exit(self):
+        pass
+
+    def handle(self, event: Event):
+        if event == Event.OnOffPressed:
+            self.player.set_state(OffState(self.player))
+        elif event == Event.PlayPausePressed:
+            self.player.set_state(PlayingState(self.player))
+
+
+# TODO: add States for Playing and Off
+
 
 class Context(ABC):
     """Abstract base class for the Context class of the State pattern."""
@@ -75,7 +93,6 @@ class MusicPlayer(Context):
         """Pause music."""
         print(colored("🔇 Music paused", "green"))
 
-    # Create a function to display the options and prompt for input
     def display_menu(self):
         click.echo("Press a button:\n")
         for i, option in enumerate(Event):
@@ -91,11 +108,9 @@ class MusicPlayer(Context):
 
 
 if __name__ == "__main__":
-    # Create a MusicPlayer instance
     music_player = MusicPlayer()
     options = [option.name for option in Event]
 
-    # Create a Click command to run the menu prompt
     @click.command()
     def menu_prompt():
         while True:
