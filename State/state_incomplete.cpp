@@ -7,12 +7,24 @@ enum class Event {
     PlayPausePressed
 };
 
+// Abstract State class
+class State {
+public:
+    virtual ~State() = default;
+
+    virtual void entry() = 0;  // Entering the state
+    virtual void exit() = 0;   // Exiting the state
+    virtual void handle(Event event, class MusicPlayer& player) = 0;  // Handling events
+};
+
 // Context class (MusicPlayer)
 class MusicPlayer {
 public:
     MusicPlayer();
 
-    void setState(MusicPlayer* new_state);
+    ~MusicPlayer();
+
+    void setState(State* new_state);
 
     void turnLedOn() {
         led_on = true;
@@ -34,21 +46,25 @@ public:
     void handle(Event event);
 
 private:
-    MusicPlayer* state;
+    State* state;
     bool led_on;
 };
 
 // Concrete State: Inactive
-class Inactive : public MusicPlayer {
+class Inactive : public State {
 public:
     Inactive(MusicPlayer& player) : player(player) {}
 
-    void entry() {
+    void entry() override {
         std::cout << "Entering 'inactive' state\n";
         player.turnLedOff();
     }
 
-    void handle(Event event) {
+    void exit() override {
+        std::cout << "Exiting 'inactive' state\n";
+    }
+
+    void handle(Event event, MusicPlayer& player) override {
         if (event == Event::OnOffPressed) {
             std::cout << "OnOffPressed event in 'inactive' state\n";
             player.setState(new On(player));
@@ -60,16 +76,20 @@ private:
 };
 
 // Concrete State: On
-class On : public MusicPlayer {
+class On : public State {
 public:
     On(MusicPlayer& player) : player(player) {}
 
-    void entry() {
+    void entry() override {
         std::cout << "Entering 'on' state\n";
         player.turnLedOn();
     }
 
-    void handle(Event event) {
+    void exit() override {
+        std::cout << "Exiting 'on' state\n";
+    }
+
+    void handle(Event event, MusicPlayer& player) override {
         if (event == Event::PlayPausePressed) {
             // TODO: Transition to Playing state
         } else if (event == Event::OnOffPressed) {
@@ -81,20 +101,28 @@ private:
     MusicPlayer& player;
 };
 
-// TODO: Add Playing state
-// TODO: Add Paused state
+// TODO: Add Playing state (inherits from State)
+
+// TODO: Add Paused state (inherits from State)
 
 // MusicPlayer Implementation
 MusicPlayer::MusicPlayer() : state(new Inactive(*this)), led_on(false) {
     state->entry();
 }
 
-void MusicPlayer::setState(MusicPlayer* new_state) {
-    state = new_state; // TODO: Handle transitions cleanly
+MusicPlayer::~MusicPlayer() {
+    delete state;
+}
+
+void MusicPlayer::setState(State* new_state) {
+    state->exit();
+    delete state;
+    state = new_state;
+    state->entry();
 }
 
 void MusicPlayer::handle(Event event) {
-    state->handle(event); // TODO: Forward the event to the current state
+    state->handle(event, *this);
 }
 
 // Main function
