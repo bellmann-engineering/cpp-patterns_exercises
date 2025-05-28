@@ -71,7 +71,7 @@ int main()
 	Window* simple = new SimpleWindow();
 	std::cout << simple->getDescription() << std::endl;
 
-	// TODO: Decorate thge simple Window with horizontal and vertical scrollbar
+	// TODO: Decorate the simple Window with horizontal and vertical scrollbar
 	
 	std::cout << decoratedWindow->getDescription() << std::endl;
 
